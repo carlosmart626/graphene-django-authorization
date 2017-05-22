@@ -9,7 +9,7 @@ tests_require = [
     'pytz',
     'django-filter',
     'pytest-django==2.9.1',
-    'graphene-django>1.0.0'
+    'graphene-django>=1.2.1'
 ]
 
 setup(
@@ -44,7 +44,7 @@ setup(
     packages=find_packages(exclude=['tests']),
 
     install_requires=[
-        'graphene-django>1.0.0'
+        'graphene-django>=1.2.1'
     ],
     setup_requires=[
         'pytest-runner',
