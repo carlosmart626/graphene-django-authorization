@@ -1,2 +1,19 @@
-# graphene-django-authorization
-Django GraphQL Authorization using Django permissions required to make queries, access to mutations and more.
+Graphene-Django Authotization Package
+
+This is package to provide authorization to *graphene-django*
+
+## Installation
+
+For instaling authorization package, just run this command in your shell
+
+```bash
+pip install graphene-django-authorization
+```
+
+## Examples
+
+TODO
+
+### Documentation
+
+TODO
