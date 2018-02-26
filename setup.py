@@ -5,11 +5,13 @@ tests_require = [
     'pytest>=2.7.2',
     'pytest-cov',
     'coveralls',
+    'coverage==4.4.2',
     'mock',
     'pytz',
     'django-filter',
-    'pytest-django==2.9.1',
-    'graphene-django>=1.2.1'
+    'pytest-django==3.1.2',
+    'graphene-django<2.0',
+    'django<2.0'
 ]
 
 setup(
@@ -44,7 +46,7 @@ setup(
     packages=find_packages(exclude=['tests']),
 
     install_requires=[
-        'graphene-django>=1.2.1'
+        'graphene-django<2.0'
     ],
     setup_requires=[
         'pytest-runner',
