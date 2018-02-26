@@ -1,5 +1,7 @@
 from setuptools import find_packages, setup
+
 from graphene_django_authorization import __version__
+
 
 tests_require = [
     'pytest>=2.7.2',
@@ -41,7 +43,8 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
 
-    keywords='api graphql protocol rest relay graphene django autotization',
+    keywords='api graphql protocol rest relay graphene django autotization permissions',
+
 
     packages=find_packages(exclude=['tests']),
 

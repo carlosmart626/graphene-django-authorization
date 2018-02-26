@@ -1,4 +1,8 @@
 import pytest
+<<<<<<< HEAD
+=======
+from unittest.mock import Mock
+>>>>>>> develop
 
 from ..data import initialize
 from ..schema import schema
@@ -6,12 +10,52 @@ from ..schema import schema
 pytestmark = pytest.mark.django_db
 
 
+<<<<<<< HEAD
+=======
+class MockUserContext(object):
+
+    def __init__(self, authenticated=True, is_staff=False, superuser=False, perms=()):
+        self.user = self
+        self.authenticated = authenticated
+        self.is_staff = is_staff
+        self.is_superuser = superuser
+        self.perms = perms
+
+    def is_authenticated(self):
+        return self.authenticated
+
+    def has_perm(self, check_perms):
+        if check_perms not in self.perms:
+            return False
+        return True
+
+
+anonymous = MockUserContext(authenticated=False)
+luke = MockUserContext(
+    authenticated=True,
+    perms=('app.view_ship', 'app.create_ship',)
+)
+anakin = MockUserContext(
+    authenticated=True,
+    perms=('app.view_ship',)
+)
+storm_tropper = MockUserContext(
+    authenticated=True,
+    perms=()
+)
+
+
+>>>>>>> develop
 def test_mutations():
     initialize()
 
     query = '''
     mutation MyMutation {
+<<<<<<< HEAD
       introduceShip(input:{clientMutationId:"abc", shipName: "Peter", factionId: "1"}) {
+=======
+      introduceShip(shipName: "Peter", factionId: "1") {
+>>>>>>> develop
         ship {
           id
           name
@@ -74,6 +118,16 @@ def test_mutations():
             }
         }
     }
+<<<<<<< HEAD
     result = schema.execute(query)
+=======
+    result = schema.execute(query, context_value=Mock(user=anonymous))
+    assert result.errors[0].message == 'Permission Denied'
+    result = schema.execute(query, context_value=Mock(user=storm_tropper))
+    assert result.errors[0].message == 'Permission Denied'
+    result = schema.execute(query, context_value=Mock(user=anakin))
+    assert result.errors[0].message == 'Permission Denied'
+    result = schema.execute(query, context_value=Mock(user=luke))
+>>>>>>> develop
     assert not result.errors
     assert result.data == expected

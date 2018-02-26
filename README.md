@@ -2,6 +2,14 @@
 
 This project enable Graphene Django to use Django Permissions and give some mixins to implement permissions.
 
+## Installation
+
+For instaling authorization package, just run this command in your shell
+
+```bash
+pip install graphene-django-authorization
+```
+
 ### Examples
 Example permission required in Node using `AuthNodeMixin`.
 
